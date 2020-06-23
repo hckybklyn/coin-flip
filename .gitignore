@@ -1,3 +1,4 @@
 .idea
 venv
 testo.py
+__pycache__
