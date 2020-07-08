@@ -1,6 +1,6 @@
 import os
 from random import random
-from flask import Flask, render_template
+from flask import Flask, render_template, request, Response
 
 PROJECT_DIR = os.path.dirname(__file__)
 IMAGES_FOLDER = os.path.join(PROJECT_DIR, "static", "images")
@@ -18,8 +18,11 @@ def images_file_name(name: str):
     return os.path.join(app.config["IMAGES"], name)
 
 
-@app.route("/flip")
+@app.route("/api/v1.0/check_url, methods=['POST']")
 def coin_flip():
+    if not request.json:
+        return Response(status=400)
+
     num = random()
 
     if num >= 0.5:
