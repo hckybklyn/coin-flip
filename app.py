@@ -18,7 +18,7 @@ def images_file_name(name: str):
     return os.path.join(app.config["IMAGES"], name)
 
 
-@app.route("/api/v1.0/check_url, methods=['POST']")
+@app.route("/api/v1.0/check_url", methods=['POST'])
 def coin_flip():
     if not request.json:
         return Response(status=400)
